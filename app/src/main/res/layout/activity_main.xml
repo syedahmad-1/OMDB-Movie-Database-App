@@ -46,21 +46,22 @@
 
         <TextView
             android:id="@+id/tv_initialText"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:text="Search\nTo Find Awesome\nMovies"
             android:textColor="@color/purple_200"
-            android:textSize="45sp"
+            android:textSize="35sp"
             android:textStyle="bold"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_searchView" />
 
         <ImageView
+            android:visibility="gone"
             android:id="@+id/iv_poster"
             android:layout_width="350dp"
             android:layout_height="250dp"
@@ -71,6 +72,7 @@
 
         <TextView
             android:id="@+id/tv_movietitle"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="10dp"
@@ -85,6 +87,7 @@
             />
         <LinearLayout
             android:id="@+id/ll_movie"
+            android:visibility="gone"
             android:layout_marginVertical="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -134,6 +137,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <ScrollView
+        android:visibility="gone"
         android:id="@+id/sv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -143,6 +147,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <androidx.cardview.widget.CardView
+                android:id="@+id/cv_genre"
                 app:cardBackgroundColor="@color/purple_200"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -180,6 +185,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+                android:id="@+id/cv_cast"
                 app:cardBackgroundColor="@color/purple_200"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -218,6 +224,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cv_plot"
                 app:cardBackgroundColor="@color/purple_200"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

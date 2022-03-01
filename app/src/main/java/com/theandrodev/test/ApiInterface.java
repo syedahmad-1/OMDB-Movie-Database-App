@@ -20,11 +20,6 @@ public interface ApiInterface {
 
 
 
-
-
-        String name="";
-
-
     @GET("/")
     Call<PostPojo> getMovie(@Query("t") String movie_name,
                              @Query("apikey")String apikey,

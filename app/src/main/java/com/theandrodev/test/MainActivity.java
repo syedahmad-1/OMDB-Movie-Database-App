@@ -7,6 +7,7 @@ import static com.theandrodev.test.RetrofitInstance.getRetrofit;
 import static com.theandrodev.test.RetrofitInstance.retrofit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.graphics.Movie;
 import android.icu.text.CaseMap;
@@ -63,10 +64,9 @@ public class MainActivity extends AppCompatActivity {
     public static String movie_name="";
     LinearLayout linearLayout;
     ScrollView scrollView;
-    String QueryString;
     Button searchButton;
     EditText searchEditText;
-
+    CardView GenreCardView, CastCardView, PlotCardView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,8 +86,15 @@ public class MainActivity extends AppCompatActivity {
         scrollView = findViewById(R.id.sv);
         searchEditText = findViewById(R.id.et_searchView);
         searchButton = findViewById(R.id.btn_searchButton);
+        GenreCardView = findViewById(R.id.cv_genre);
+        CastCardView = findViewById(R.id.cv_cast);
+        PlotCardView = findViewById(R.id.cv_plot);
+
 
         searchEditText.setInputType(InputType.TYPE_CLASS_TEXT);
+
+
+
 
 
 
@@ -95,7 +102,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 movie_name = searchEditText.getText().toString();
-                fetchMovies(movie_name, APIKEY);
+                if(movie_name=="")
+                {
+                    Toast.makeText(MainActivity.this, "Type to Search an Awesome Movie", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    fetchMovies(movie_name, APIKEY);
+                    movie_name="";
+                    UpdateUi();
+                }
+
 
             }
         });
@@ -108,6 +124,18 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private void UpdateUi()
+    {
+            initialText.setVisibility(View.GONE);
+            movieTitle.setVisibility(View.VISIBLE);
+            moviePoster.setVisibility(View.VISIBLE);
+            linearLayout.setVisibility(View.VISIBLE);
+            scrollView.setVisibility(View.VISIBLE);
+            GenreCardView.setVisibility(View.VISIBLE);
+            CastCardView.setVisibility(View.VISIBLE);
+            PlotCardView.setVisibility(View.VISIBLE);
     }
 
     private void fetchMovies(String movie_name, String APIKEY){
@@ -146,6 +174,8 @@ public class MainActivity extends AppCompatActivity {
 
                 response_text = postPojo.getPoster();
                 Picasso.get().load(response_text).into(moviePoster);
+
+
             }
 
             @Override
