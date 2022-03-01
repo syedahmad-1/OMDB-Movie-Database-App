@@ -15,19 +15,34 @@
         android:layout_weight="1">
 
 
-        <SearchView
-            android:id="@+id/search_view"
+        <EditText
+            android:id="@+id/et_searchView"
+            android:hint="Search Movies"
+            android:textAlignment="center"
+            android:textSize="20sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="100dp"
             android:background="@color/purple_200"
             android:iconifiedByDefault="false"
             android:queryHint="Search Movies"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/btn_searchButton"
+            android:layout_width="wrap_content"
+            android:background="@color/purple_200"
+            android:text="Search"
+            android:textColor="@color/MainPurple"
+            android:layout_marginVertical="20dp"
+            android:layout_height="45dp"
+            app:layout_constraintStart_toEndOf="@id/et_searchView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <TextView
             android:id="@+id/tv_initialText"
@@ -43,7 +58,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/search_view" />
+            app:layout_constraintTop_toBottomOf="@id/et_searchView" />
 
         <ImageView
             android:id="@+id/iv_poster"
@@ -52,7 +67,7 @@
             android:layout_marginVertical="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/search_view" />
+            app:layout_constraintTop_toBottomOf="@id/et_searchView" />
 
         <TextView
             android:id="@+id/tv_movietitle"

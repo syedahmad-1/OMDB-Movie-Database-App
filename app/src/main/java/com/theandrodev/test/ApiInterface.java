@@ -19,20 +19,17 @@ import retrofit2.http.Query;
 public interface ApiInterface {
 
 
-    String name="3 idiots";
-
-    @Headers({
-            "Accepts: application/json",
-            "t: Batman",
-            "apikey:8dfb77b4"
-    })
-    @GET("?t={movie_name}&apikey=8dfb77b4")
-    Call<PostPojo> getBatman(
-            @Path("movie_name") String movie_name);
 
 
-    @GET("?t="+name+"&apikey=8dfb77b4")
-    Call<PostPojo> getMovieDetails(@Query("Title") String Title);
+
+        String name="";
+
+
+    @GET("/")
+    Call<PostPojo> getMovie(@Query("t") String movie_name,
+                             @Query("apikey")String apikey,
+                             @Query("type") String type);
+
 
 
 

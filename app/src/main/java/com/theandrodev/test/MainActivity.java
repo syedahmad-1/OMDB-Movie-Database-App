@@ -12,8 +12,11 @@ import android.graphics.Movie;
 import android.icu.text.CaseMap;
 import android.opengl.Visibility;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -29,6 +32,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.androidgamesdk.gametextinput.Listener;
 import com.squareup.picasso.Picasso;
 
+import java.lang.reflect.Type;
 import java.security.PrivateKey;
 import java.util.List;
 
@@ -43,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private static Retrofit retrofit = null;
 
 
-    ApiInterface apiInterface;
+    private ApiInterface apiInterface;
     TextView movieTitle;
     SearchView searchView;
     TextView duration;
@@ -59,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
     public static String movie_name="";
     LinearLayout linearLayout;
     ScrollView scrollView;
+    String QueryString;
+    Button searchButton;
+    EditText searchEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         movieTitle = findViewById(R.id.tv_movietitle);
-        searchView = findViewById(R.id.search_view);
         duration = findViewById(R.id.tv_duration);
         releasedYear = findViewById(R.id.tv_year);
         imdbRating = findViewById(R.id.tv_rating);
@@ -78,20 +84,18 @@ public class MainActivity extends AppCompatActivity {
         moviePoster = findViewById(R.id.iv_poster);
         linearLayout = findViewById(R.id.ll_movie);
         scrollView = findViewById(R.id.sv);
+        searchEditText = findViewById(R.id.et_searchView);
+        searchButton = findViewById(R.id.btn_searchButton);
+
+        searchEditText.setInputType(InputType.TYPE_CLASS_TEXT);
 
 
-            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-//
-                searchActivityIsChanged = true;
-                return true;
+            public void onClick(View v) {
+                movie_name = searchEditText.getText().toString();
+                fetchMovies(movie_name, APIKEY);
 
             }
         });
@@ -100,10 +104,16 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        String mTitle ="";
+
+
+
+
+    }
+
+    private void fetchMovies(String movie_name, String APIKEY){
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BASEURL).addConverterFactory(GsonConverterFactory.create()).build();
-        ApiInterface apiInterface =retrofit.create(ApiInterface.class);
-        Call<PostPojo> call = apiInterface.getMovieDetails(movie_name);
+        apiInterface =retrofit.create(ApiInterface.class);
+        Call<PostPojo> call = apiInterface.getMovie(movie_name, APIKEY, "movie");
         call.enqueue(new Callback<PostPojo>() {
             @Override
             public void onResponse(Call<PostPojo> call, Response<PostPojo> response) {
@@ -140,20 +150,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<PostPojo> call, Throwable t) {
-
-
-
-
+                Toast.makeText(MainActivity.this, t.toString(), Toast.LENGTH_LONG).show();
             }
         });
 
-
-
-
-
-    }
-
-    private void fetchMovies(String movie_name){
 
 
     }
