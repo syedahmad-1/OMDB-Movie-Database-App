@@ -32,6 +32,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.androidgamesdk.gametextinput.Listener;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.lang.reflect.Type;
 import java.security.PrivateKey;
@@ -161,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
                 releasedYear.setText(response_text);
 
                 response_text = postPojo.getImdbRating();
-                imdbRating.setText(response_text);
+                imdbRating.setText("IMDb "+response_text);
 
                 response_text = postPojo.getGenre();
                 genre.setText(response_text);

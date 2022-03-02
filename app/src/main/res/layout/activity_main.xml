@@ -2,10 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_firstpage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#28154a"
+    android:background="@color/AliceBlue"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,7 +26,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="100dp"
-            android:background="@color/purple_200"
+            android:background="@color/Card"
             android:iconifiedByDefault="false"
             android:queryHint="Search Movies"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +35,7 @@
         <Button
             android:id="@+id/btn_searchButton"
             android:layout_width="wrap_content"
-            android:background="@color/purple_200"
+            android:background="@color/Card"
             android:text="Search"
             android:textColor="@color/MainPurple"
             android:layout_marginVertical="20dp"
@@ -50,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:text="Search\nTo Find Awesome\nMovies"
-            android:textColor="@color/purple_200"
+            android:textColor="@color/Card"
             android:textSize="35sp"
             android:textStyle="bold"
             android:visibility="visible"
@@ -77,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="10dp"
             android:text=""
-            android:textColor="@color/purple_200"
+            android:textColor="@color/Card"
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -101,9 +102,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:text=""
+                android:text="140 min"
                 android:textAlignment="textEnd"
-                android:textColor="@color/purple_200"
+                android:textColor="@color/Card"
                 android:textSize="14sp"
                 tools:layout_editor_absoluteX="109dp"
                 tools:layout_editor_absoluteY="387dp" />
@@ -115,7 +116,7 @@
                 android:layout_weight="2"
                 android:text="2012"
                 android:textAlignment="center"
-                android:textColor="@color/purple_200"
+                android:textColor="@color/Card"
                 android:textSize="14sp"
                 tools:layout_editor_absoluteX="175dp"
                 tools:layout_editor_absoluteY="387dp" />
@@ -127,7 +128,7 @@
                 android:layout_weight="2"
                 android:text="IMdb: 7.7"
                 android:textAlignment="textStart"
-                android:textColor="@color/purple_200"
+                android:textColor="@color/Card"
                 android:textSize="14sp"
                 tools:layout_editor_absoluteX="221dp"
                 tools:layout_editor_absoluteY="387dp" />
@@ -148,7 +149,7 @@
             android:orientation="vertical">
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_genre"
-                app:cardBackgroundColor="@color/purple_200"
+                app:cardBackgroundColor="@color/Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -186,7 +187,7 @@
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_cast"
-                app:cardBackgroundColor="@color/purple_200"
+                app:cardBackgroundColor="@color/Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -225,7 +226,7 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_plot"
-                app:cardBackgroundColor="@color/purple_200"
+                app:cardBackgroundColor="@color/Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"

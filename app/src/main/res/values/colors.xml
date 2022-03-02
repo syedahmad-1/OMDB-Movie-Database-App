@@ -7,5 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="MainPurple">#28154a</color>
+    <color name="MainPurple">#353535</color>
+    <color name="Card">#3C6E71</color>
+    <color name="AliceBlue">#DDF0FF</color>
 </resources>
