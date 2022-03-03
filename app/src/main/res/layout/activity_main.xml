@@ -18,32 +18,37 @@
 
         <EditText
             android:id="@+id/et_searchView"
-            android:hint="Search Movies"
-            android:textAlignment="center"
-            android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="100dp"
-            android:background="@color/Card"
+            android:background="@drawable/round"
+            android:textColor="@color/MainPurple"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/ic_search"
+            android:hint="Search Movies"
             android:iconifiedByDefault="false"
-            android:queryHint="Search Movies"
+            android:paddingStart="8dp"
+            android:textAlignment="center"
+            android:textColorHint="@color/MainPurple"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/btn_searchButton"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
-            android:background="@color/Card"
+            android:layout_height="45dp"
+            android:layout_marginVertical="20dp"
+            android:background="@drawable/round"
             android:text="Search"
             android:textColor="@color/MainPurple"
-            android:layout_marginVertical="20dp"
-            android:layout_height="45dp"
-            app:layout_constraintStart_toEndOf="@id/et_searchView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintStart_toEndOf="@id/et_searchView"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_initialText"
@@ -51,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:text="Search\nTo Find Awesome\nMovies"
-            android:textColor="@color/Card"
+            android:textColor="@color/MainPurple"
             android:textSize="35sp"
             android:textStyle="bold"
             android:visibility="visible"

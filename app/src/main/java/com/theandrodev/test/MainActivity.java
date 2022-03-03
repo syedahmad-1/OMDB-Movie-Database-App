@@ -103,32 +103,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 movie_name = searchEditText.getText().toString();
-                if(movie_name=="")
-                {
-                    Toast.makeText(MainActivity.this, "Type to Search an Awesome Movie", Toast.LENGTH_SHORT).show();
-                }
-                else{
+
                     fetchMovies(movie_name, APIKEY);
-                    movie_name="";
-                    UpdateUi();
-                }
+                    UpdateUi(movie_name);
+
 
 
             }
         });
 
-
-
-
-
-
-
-
-
     }
 
-    private void UpdateUi()
+    private void UpdateUi(String movie_name)
     {
+        if(movie_name.isEmpty())
+        {
+            initialText.setVisibility(View.VISIBLE);
+            moviePoster.setVisibility(View.GONE);
+            movieTitle.setVisibility(View.GONE);
+            scrollView.setVisibility(View.GONE);
+            linearLayout.setVisibility(View.GONE);
+        }
+        else {
             initialText.setVisibility(View.GONE);
             movieTitle.setVisibility(View.VISIBLE);
             moviePoster.setVisibility(View.VISIBLE);
@@ -137,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
             GenreCardView.setVisibility(View.VISIBLE);
             CastCardView.setVisibility(View.VISIBLE);
             PlotCardView.setVisibility(View.VISIBLE);
+            }
     }
 
     private void fetchMovies(String movie_name, String APIKEY){
